@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function AudioToggle({ src }: { src: string }) {
+export default function AudioToggle({ src, autoPlay = false }: { src: string; autoPlay?: boolean }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -10,7 +10,12 @@ export default function AudioToggle({ src }: { src: string }) {
     const a = audioRef.current;
     if (!a) return;
     a.volume = 0.5;
-  }, []);
+    if (autoPlay) {
+      a.play().then(() => setPlaying(true)).catch(() => {
+        /* autoplay blocked — user can press toggle */
+      });
+    }
+  }, [autoPlay]);
 
   const toggle = async () => {
     const a = audioRef.current;

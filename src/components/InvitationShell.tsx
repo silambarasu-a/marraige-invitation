@@ -3,6 +3,7 @@
 import { useEffect, useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import EnvelopeIntro from "./EnvelopeIntro";
+import AudioToggle from "./AudioToggle";
 
 export default function InvitationShell({ children }: { children: ReactNode }) {
   const [opened, setOpened] = useState(false);
@@ -41,6 +42,8 @@ export default function InvitationShell({ children }: { children: ReactNode }) {
       >
         {children}
       </motion.div>
+
+      {opened && <AudioToggle src="/sita-kalyana.mp3" autoPlay />}
     </>
   );
 }

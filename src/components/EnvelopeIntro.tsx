@@ -20,7 +20,7 @@ export default function EnvelopeIntro({
     onClick?.();
     setPhase("opening");
     // cover finishes its swing
-    setTimeout(() => setPhase("open"), 2900);
+    setTimeout(() => setPhase("open"), 6000);
     // overlay fades and unmounts
     setTimeout(() => setPhase("exiting"), 4700);
     setTimeout(() => onOpen?.(), 6000);

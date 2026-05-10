@@ -31,7 +31,7 @@ export default function Home() {
           day="24"
           month="May"
           year="2026"
-          time="6:30 PM Onwards"
+          time="6:00 PM Onwards"
           venue="Sri Krishna Ganam Thirumana Madapam"
           location="Udumalpet"
           themeTagline="An evening of celebration"
@@ -45,9 +45,9 @@ export default function Home() {
           date="24 May 2026"
           weekday="Sunday"
           items={[
-            { time: "6:30 PM", title: "Guests Arrival", subtitle: "Welcome drinks & mingling" },
-            { time: "7:30 PM", title: "Reception Ceremony", subtitle: "Blessings from elders" },
-            { time: "8:30 PM", title: "Dinner", subtitle: "A feast to remember" },
+            { time: "5:30 PM", title: "Guests Arrival", subtitle: "Welcome drinks & mingling" },
+            { time: "6:00 PM", title: "Reception Ceremony", subtitle: "Blessings from elders" },
+            { time: "7:00 PM", title: "Dinner", subtitle: "A feast to remember" },
           ]}
         />
 

@@ -56,8 +56,8 @@ export default function SaveTheDate() {
         </p>
 
         <div className="mt-12 grid grid-cols-3 gap-4 sm:gap-6 max-w-md mx-auto">
+          <ScratchTile label="Date" value="24-25" onReveal={handleReveal} />
           <ScratchTile label="Month" value="May" onReveal={handleReveal} />
-          <ScratchTile label="Day" value="24-25" onReveal={handleReveal} />
           <ScratchTile label="Year" value="2026" onReveal={handleReveal} />
         </div>
 

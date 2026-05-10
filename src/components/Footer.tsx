@@ -23,7 +23,7 @@ export default function Footer() {
           className="mt-6 text-4xl text-sage-deep"
           style={{ fontFamily: "var(--font-great-vibes)" }}
         >
-          With love &amp; blessings
+          With love
         </p>
         <p
           className="mt-3 italic text-ink-soft"

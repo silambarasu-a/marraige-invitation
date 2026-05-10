@@ -129,18 +129,35 @@ export default function EventCard({
                 >
                   {title}
                 </h3>
-                <div className="mt-1 inline-flex items-center gap-2 text-[11px]">
-                  <span className={isNight ? "text-cream/90" : "text-[#5a2810]"}>
-                    {weekday} · {day} {month} {year}
-                  </span>
-                </div>
+              </div>
+
+              {/* bottom scrim for date/time legibility */}
+              <div
+                className="absolute inset-x-0 bottom-0 h-[32%] pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 55%, transparent 100%)",
+                }}
+              />
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between px-4 pb-3">
                 <p
-                  className={`text-[10px] tracking-wider ${
-                    isNight ? "text-cream/80" : "text-[#7a3d1c]"
-                  }`}
+                  className="tracking-[0.3em] uppercase text-[10px] font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]"
                 >
-                  {time}
+                  {weekday}
                 </p>
+                <div className="text-right">
+                  <p
+                    className="text-[13px] tracking-wide font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]"
+                    style={{ fontFamily: "var(--font-cormorant)" }}
+                  >
+                    {day} {month} {year}
+                  </p>
+                  <p
+                    className="text-[10px] tracking-[0.2em] uppercase font-medium mt-0.5 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]"
+                  >
+                    {time}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

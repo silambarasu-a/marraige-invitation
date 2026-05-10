@@ -35,7 +35,7 @@ export default function Home() {
           mapsUrl="https://maps.google.com/?q=Sri+Krishna+Ganam+Thirumana+Madapam+Udumalpet"
           embedSrc="https://www.google.com/maps?q=Sri+Krishna+Ganam+Thirumana+Madapam+Udumalpet&output=embed"
           artwork={<ReceptionArtwork />}
-          theme="night"
+          theme="day"
         />
 
         <Timeline

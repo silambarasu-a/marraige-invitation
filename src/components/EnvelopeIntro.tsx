@@ -256,10 +256,6 @@ function InsideRight() {
           Silambarasu &amp; Prathiksha
         </div>
         <div className="mt-6 w-16 h-px bg-gradient-to-r from-transparent via-[color:var(--gold)] to-transparent" />
-        <p className="mt-4 tracking-[0.3em] uppercase text-[10px] text-[color:var(--ink-soft)]">
-          please scroll to continue
-        </p>
-        <div className="mt-3 text-[color:var(--gold)]">↓</div>
       </div>
     </div>
   );

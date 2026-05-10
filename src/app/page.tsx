@@ -48,7 +48,6 @@ export default function Home() {
             { time: "6:30 PM", title: "Guests Arrival", subtitle: "Welcome drinks & mingling" },
             { time: "7:30 PM", title: "Reception Ceremony", subtitle: "Blessings from elders" },
             { time: "8:30 PM", title: "Dinner", subtitle: "A feast to remember" },
-            { time: "10:00 PM", title: "Cake & Closing", subtitle: "Sweet endings" },
           ]}
         />
 

@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import Countdown from "@/components/Countdown";
 import SaveTheDate from "@/components/SaveTheDate";
 import EventCard from "@/components/EventCard";
 import Timeline from "@/components/Timeline";
@@ -18,8 +17,6 @@ export default function Home() {
         <SectionBurst />
 
         <Hero />
-
-        <Countdown />
 
         <SaveTheDate />
 

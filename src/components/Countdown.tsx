@@ -29,7 +29,7 @@ export default function Countdown() {
   }, []);
 
   return (
-    <section id="countdown" data-burst="true" ref={ref} className="snap-section px-6 py-12 bg-paper texture-paper">
+    <section id="countdown" data-burst="true" ref={ref} className="px-6 pt-10 pb-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}

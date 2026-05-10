@@ -2,17 +2,19 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Countdown from "./Countdown";
 
 export default function Footer() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
   return (
-    <footer ref={ref} className="snap-section px-6 py-12 bg-paper texture-paper text-center">
+    <footer ref={ref} className="snap-section bg-paper texture-paper text-center pt-10 pb-12">
+      <Countdown />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
-        className="mx-auto max-w-xl"
+        className="mx-auto max-w-xl px-6 pt-6"
       >
         <div className="flex items-center justify-center gap-4">
           <span className="block h-px w-24 bg-gradient-to-r from-transparent to-gold" />

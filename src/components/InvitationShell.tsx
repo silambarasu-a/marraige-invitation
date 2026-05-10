@@ -1,18 +1,18 @@
 "use client";
 
-import { useEffect, useState, ReactNode } from "react";
+import { useEffect, useRef, useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import EnvelopeIntro from "./EnvelopeIntro";
 import AudioToggle from "./AudioToggle";
 
 export default function InvitationShell({ children }: { children: ReactNode }) {
   const [opened, setOpened] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     if (new URLSearchParams(window.location.search).has("preview")) {
       setOpened(true);
     }
-    // start at the top whenever the page (re)loads (unless an explicit hash target)
     if (!window.location.hash) {
       window.scrollTo(0, 0);
     }
@@ -21,7 +21,6 @@ export default function InvitationShell({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  // lock body scroll while the envelope intro is up
   useEffect(() => {
     document.documentElement.classList.toggle("intro-locked", !opened);
     if (opened && !window.location.hash) {
@@ -29,10 +28,27 @@ export default function InvitationShell({ children }: { children: ReactNode }) {
     }
   }, [opened]);
 
+  const startMusic = () => {
+    const a = audioRef.current;
+    if (!a) return;
+    a.volume = 0.5;
+    a.play().catch(() => {
+      /* blocked — user can press toggle */
+    });
+  };
+
   return (
     <>
+      <audio ref={audioRef} src="/sita-kalyana.mp3" loop preload="auto" />
+
       <AnimatePresence>
-        {!opened && <EnvelopeIntro key="env" onOpen={() => setOpened(true)} />}
+        {!opened && (
+          <EnvelopeIntro
+            key="env"
+            onClick={startMusic}
+            onOpen={() => setOpened(true)}
+          />
+        )}
       </AnimatePresence>
 
       <motion.div
@@ -43,7 +59,7 @@ export default function InvitationShell({ children }: { children: ReactNode }) {
         {children}
       </motion.div>
 
-      {opened && <AudioToggle src="/sita-kalyana.mp3" autoPlay />}
+      {opened && <AudioToggle audioRef={audioRef} />}
     </>
   );
 }

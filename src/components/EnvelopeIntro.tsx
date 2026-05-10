@@ -6,11 +6,18 @@ import HeartRain from "./HeartRain";
 
 type Phase = "closed" | "opening" | "open" | "exiting";
 
-export default function EnvelopeIntro({ onOpen }: { onOpen?: () => void }) {
+export default function EnvelopeIntro({
+  onOpen,
+  onClick,
+}: {
+  onOpen?: () => void;
+  onClick?: () => void;
+}) {
   const [phase, setPhase] = useState<Phase>("closed");
 
   const handleOpen = () => {
     if (phase !== "closed") return;
+    onClick?.();
     setPhase("opening");
     // cover finishes its swing
     setTimeout(() => setPhase("open"), 1700);

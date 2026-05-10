@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <InvitationShell>
       <main className="relative">
-        <HeartRain count={26} />
+        <HeartRain count={12} />
         <SectionBurst />
 
         <Hero />

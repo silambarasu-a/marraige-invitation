@@ -20,10 +20,10 @@ export default function EnvelopeIntro({
     onClick?.();
     setPhase("opening");
     // cover finishes its swing
-    setTimeout(() => setPhase("open"), 1700);
+    setTimeout(() => setPhase("open"), 2900);
     // overlay fades and unmounts
-    setTimeout(() => setPhase("exiting"), 2800);
-    setTimeout(() => onOpen?.(), 3600);
+    setTimeout(() => setPhase("exiting"), 4700);
+    setTimeout(() => onOpen?.(), 6000);
   };
 
   return (
@@ -36,7 +36,7 @@ export default function EnvelopeIntro({
       role="button"
       aria-label="Open invitation"
     >
-      <HeartRain count={28} zIndex={1} />
+      <HeartRain count={14} zIndex={1} />
 
       <motion.div
         animate={
@@ -68,7 +68,7 @@ export default function EnvelopeIntro({
                 ? { rotateY: -168 }
                 : { rotateY: 0 }
             }
-            transition={{ duration: 1.6, ease: [0.7, 0.0, 0.2, 1] }}
+            transition={{ duration: 2.6, ease: [0.7, 0.0, 0.2, 1] }}
           >
             <CoverFront />
             <CoverBack />

@@ -10,21 +10,28 @@ export default function InvitationShell({ children }: { children: ReactNode }) {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
     if (new URLSearchParams(window.location.search).has("preview")) {
       setOpened(true);
     }
     if (!window.location.hash) {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
     }
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted && !window.location.hash) {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+      }
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
   }, []);
 
   useEffect(() => {
     document.documentElement.classList.toggle("intro-locked", !opened);
     if (opened && !window.location.hash) {
-      window.scrollTo({ top: 0, behavior: "auto" });
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
     }
   }, [opened]);
 

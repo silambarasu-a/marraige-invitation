@@ -33,7 +33,7 @@ const siteUrl =
 
 const title = "Silambarasu ❖ Prathiksha — A Sacred Union";
 const description =
-  "We cordially invite you to celebrate our union — Reception 24 May & Muhurtham 25 May 2026, Pollachi & Udumalpet.";
+  "We cordially invite you to celebrate our union — Reception 24 May & Muhurtham 25 May 2026, Udumalpet & Pollachi.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -103,8 +103,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${greatVibes.variable} ${inter.variable} ${pinyon.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${greatVibes.variable} ${inter.variable} ${pinyon.variable} h-full antialiased intro-locked`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if('scrollRestoration' in history){history.scrollRestoration='manual';}window.scrollTo(0,0);}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-paper text-ink">{children}</body>
     </html>
   );
